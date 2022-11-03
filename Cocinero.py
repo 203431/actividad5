@@ -9,9 +9,9 @@ class Cocinero(Thread):
         
     def cocinar(self, client):
         self.conditionC.acquire()
-        print(f"-Cocinero: cocinando el platillo del cliente {client}")
+        print(f"Cocinero: cocinando el platillo del cliente {client}")
         sleep(10)
         self.order[1] = True
         self.conditionC.notify()
         self.conditionC.release()
-        print("-Cocinero: Estoy descasando")
+        print("Cocinero: Estoy descasando")

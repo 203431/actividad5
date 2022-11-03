@@ -18,22 +18,22 @@ class Client(Thread):
         self.sentado = self.recepcionista.atender(self.name, 0)
         
     def recibirComida(self):
-        print(f"-Mesero: llevando la comida al cliente {self.name}")
+        print(f"Mesero: llevando la comida al cliente {self.name}")
         self.comer = self.mesero.llevarComida
     
     def comiendo(self):
-        print(f"--Yo {self.name} estoy comiendo--")
+        print(f"Yo {self.name} estoy comiendo")
         sleep(randint(1, 10))
-        print(f"--Yo {self.name} he terminado de comer y me voy--")
+        print(f"Yo {self.name} he terminado de comer y me voy")
         self.tables.remove(self.name)
             
     def run(self):
-        print(f"--Yo {self.name} he llegado al restaurant, atiendeme! --")
+        print(f"Yo {self.name} he llegado al restaurant, atiendeme!")
         self.requestServiceToRecepcionist()
         while self.sentado == False:
                 self.sentado = self.recepcionista.atenderCola(self.name)
         if (self.sentado == True):
-            print(f"--Yo {self.name} sentado y esperando a un mesero --")
+            print(f"Yo {self.name} sentado y esperando a un mesero")
             self.mesero.attend(self.name)
             while(self.comer == False):
                 if self.order[1] == True:
